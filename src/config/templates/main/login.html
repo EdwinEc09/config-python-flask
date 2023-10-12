@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<body>
+    <header id="home">
+        <div class="menu">
+            <div class="logo"></div><!--logo-->
+            <nav class="desktop-menu">
+                <ul>
+                    <li><a >Inicio</a></li>
+                </ul>
+            </nav>
+        </div>
+    <meta charset="utf-8">
+    <title>login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+</head>
+
+
+
+    <div class="login-box">
+        <h1>Login admin</h1> 
+        <!-- USERNAME INPUT -->
+        <label for="username">Username</label>
+        <input id="correo_login" type="text" placeholder="Enter Username" > 
+        <!-- PASSWORD INPUT -->
+        <label for="password">Password</label>
+        <input id="contraseña_login" type="password" placeholder="Enter Password">
+        <br>
+        <a style="color: black;" href="fronted/clave">Olvidaste tu clave?</a><br>
+        
+        <input    onclick="ingreso_login()" type="submit" value="Ingresar">
+        <a href="fronted/registro"> <input class="botonlogin"  type="submit" value="Crear Cuenta"></a>
+</form>    
+</div>
+
+</body>
+<script src="{{url_for('static', filename='js/login.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+{% endblock %}
