@@ -1,5 +1,5 @@
 from config.db import db, app, ma 
-from werkzeug.security import generate_password_hash
+# from werkzeug.security import generate_password_hash
 
 
 class logins(db.Model):
@@ -22,8 +22,7 @@ class logins(db.Model):
         self.sexo = sexo
         self.fecha_nacimiento = fecha_nacimiento
          
-        
-   
+         
         # self.id_admin = id_admin
 
 with app.app_context():

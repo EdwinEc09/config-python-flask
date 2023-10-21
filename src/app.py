@@ -25,7 +25,7 @@ from model.login import logins
     
 @app.route("/")
 def index():
-    return render_template('/main/login.html')
+    return render_template('/main/index.html')
 
 
 
