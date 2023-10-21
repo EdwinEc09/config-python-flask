@@ -6,10 +6,10 @@ from flask_sqlalchemy import SQLAlchemy
 routes_home = Blueprint("routes_home", __name__)
 
 
-# @routes_home.route("/registro",  methods=['GET'])
-# def indexregistro():
-#     titulo = "Pagina cita"
-#     return render_template('/main/registro_user.html', titles=titulo)
+@routes_home.route("/index",  methods=['GET'])
+def indexl():
+    titulo = "Pagina cita"
+    return render_template('/main/index.html', titles=titulo)
 
 
 

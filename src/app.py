@@ -8,9 +8,9 @@ from config.db import db, app, ma
 # #importar los model en orden
 from model.login import logins
 
-# # importacion del home
-# from rutas.home import routes_home
-# app.register_blueprint(routes_home, url_prefix="/fronted")
+# importacion del home
+from rutas.home import routes_home
+app.register_blueprint(routes_home, url_prefix="/fronted")
 
 
 
@@ -25,7 +25,7 @@ from model.login import logins
     
 @app.route("/")
 def index():
-    return render_template('/main/index.html')
+    return render_template('/main/login.html')
 
 
 
