@@ -6,8 +6,8 @@ from flask_sqlalchemy import SQLAlchemy
 routes_home = Blueprint("routes_home", __name__)
 
 
-@routes_home.route("/index",  methods=['GET'])
-def indexl():
+@routes_home.route("/index_dashboar",  methods=['GET'])
+def index_dashboar():
     titulo = "Pagina cita"
     return render_template('/main/index.html', titles=titulo)
 

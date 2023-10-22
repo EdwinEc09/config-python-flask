@@ -13,6 +13,11 @@ from rutas.home import routes_home
 app.register_blueprint(routes_home, url_prefix="/fronted")
 
 
+# importacion de los api
+from api.login import routes_login
+app.register_blueprint(routes_login, url_prefix="/api")
+
+
 
 # esto es para la redireccion de la pagina cuando la ruta este mal
 # @app.errorhandler(404)

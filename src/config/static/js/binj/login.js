@@ -1,13 +1,10 @@
+function validar_login(event) {
+  event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
 
-function ingreso_login() {
-  const usuario = document.getElementById('correo_login');
-  const contrasena = document.getElementById('contraseña_login');
+  const usuario = document.getElementById('email');
+  const contrasena = document.getElementById('contrasena');
 
-  if (
-    usuario.value === '' ||
-    contrasena.value === ''
-
-  ) {
+  if (usuario.value === '' || contrasena.value === '') {
     // Mostrar la alerta de error
     Swal.fire({
       position: 'top-center',
@@ -18,14 +15,15 @@ function ingreso_login() {
     });
     return; // Salir de la función si no hay datos en todos los campos
   }
-  axios.post('fronted/login_chat', {
+
+  axios.post('api/validar_login', {
     usuario: usuario.value,
-    contraseña: contrasena.value
+    contrasena: contrasena.value
   })
     .then(function (response) {
       console.log(response);
 
-      if (response.data.status === "Correcto") { 
+      if (response.data.status === "Correcto") {
         // Alerta de inicio de sesión exitoso
         Swal.fire({
           position: 'top-center',
@@ -36,7 +34,7 @@ function ingreso_login() {
         });
 
         // Redirigir a otra vista
-        window.location.href = 'fronted/principal';  // Reemplaza '/otra_vista' con la URL de la vista deseada
+        window.location.href = '/fronted/index_dashboar';  // Reemplaza '/otra_vista' con la URL de la vista deseada
       } else if (response.data.status === "Error") {
         // Alerta de error con mensaje específico
         Swal.fire({
@@ -53,6 +51,8 @@ function ingreso_login() {
       console.log(error);
     });
 }
+
+document.getElementById('entrar').addEventListener('click', validar_login);
 
 
 
@@ -75,7 +75,7 @@ function registrar() {
     Correo.value === '' ||
     contraseña.value === '' ||
     sexo.value === '' ||
-    fecha.value === '' 
+    fecha.value === ''
   ) {
     // Mostrar la alerta de error
     Swal.fire({
@@ -95,7 +95,7 @@ function registrar() {
       contraseña: contraseña.value,
       sexo: sexo.value,
       fecha: fecha.value,
-   
+
     }, {
       headers: {
         'Content-Type': 'multipart/form-data',
