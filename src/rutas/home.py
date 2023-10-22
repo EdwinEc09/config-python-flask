@@ -11,6 +11,10 @@ def index_dashboar():
     titulo = "Pagina cita"
     return render_template('/main/index.html', titles=titulo)
 
+@routes_home.route("/index_registro",  methods=['GET'])
+def index_registro():
+    titulo = "Pagina registro"
+    return render_template('/main/registro.html', titles=titulo)
 
 
 # #   este es un ejemplo de como protejer las rutas con session

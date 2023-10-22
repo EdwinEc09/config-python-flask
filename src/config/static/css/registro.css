@@ -5,13 +5,13 @@
     font-family: 'poppins', sans-serif;
 }
 
-section{
+section{ 
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-color:red;
+    background-color: red;
     background-size: cover;
     background-position: center;
     animation: animateBg 5s linear infinite;
@@ -26,7 +26,7 @@ section{
 .login-box{
     position: relative;
     width: 400px;
-    height: 450px;
+    height: 570px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .5);
     border-radius: 20px;
@@ -49,9 +49,16 @@ h2{
     border-bottom: 2px solid #fff;
 }
 
+.input-box-select{
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid #fff;
+}
+
 .input-box label{
-    position: absolute;
-    top: -5px;
+    position: absolute;  /* Cambio de relative a absolute */
+    top: -5px;  /* Posición inicial para la etiqueta */
     left: 5px;
     transform: translateY(-50%);
     font-size: 1em;
@@ -60,7 +67,21 @@ h2{
     transition: .5s;
 }
 
+.input-box-select label{
+    position: absolute;  /* Cambio de relative a absolute */
+    top: -8px;  /* Posición inicial para la etiqueta */
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
 
+.input-box input:focus ~ label,
+.input-box input:placeholder-shown ~ label {
+    top: -15px;  /* Mantener la etiqueta en la posición inicial al enfocar o cuando el campo tiene un valor */
+}
 
 .input-box input{
     width: 100%;
@@ -73,6 +94,11 @@ h2{
     padding: 0 35px 0 5px;
 }
 
+.input-box-select select:focus ~ label,
+.input-box-select select:placeholder-shown ~ label {
+    top: -15px;  /* Mantener la etiqueta en la posición inicial al enfocar o cuando el campo tiene un valor */
+}
+
 .input-box .icon{
     position: absolute;
     right: 8px;
@@ -81,7 +107,16 @@ h2{
     line-height: 57px;
 }
 
-.remember-forget{
+.input-box-select .icon{
+    position: absolute;
+    right: 8px;
+    bottom: -13px;
+    color: #fff;
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+remember-forget{
     margin: -15px 0 15px;
     font-size: .9em;
     color: #fff;
@@ -89,16 +124,16 @@ h2{
     justify-content: space-between;
 }
 
-.remember-forget label input{
+remember-forget label input{
     margin: right 3px;
 }
 
-.remember-forget a{
+remember-forget a{
     color: #fff;
     text-decoration: none;
 }
 
-.remember-forget a:hover{
+remember-forget a:hover{
     text-decoration: underline;
 }
 
@@ -140,6 +175,9 @@ button{
         border-radius: 0;
     }
     .input-box{
+        width: 290px;
+    }
+    .input-box-select{
         width: 290px;
     }
 }
