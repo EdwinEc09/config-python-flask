@@ -1,9 +1,7 @@
 function validar_login(event) {
   event.preventDefault(); // Evitar el comportamiento predeterminado del formulario
-
   const usuario = document.getElementById('email');
   const contrasena = document.getElementById('contrasena');
-
   if (usuario.value === '' || contrasena.value === '') {
     // Mostrar la alerta de error
     Swal.fire({
@@ -15,7 +13,6 @@ function validar_login(event) {
     });
     return; // Salir de la función si no hay datos en todos los campos
   }
-
   axios.post('api/validar_login', {
     usuario: usuario.value,
     contrasena: contrasena.value
@@ -82,7 +79,7 @@ function registrar() {
     .post(
       "/api/guardaregistros",
       {
-        regis_usuarioss: regis_usuario,
+        regis_usuarios: regis_usuario,
         email: regis_email,
         contrasena: regis_contrasena,
         sexo: regis_sexo,
@@ -119,11 +116,11 @@ function registrar() {
           showConfirmButton: false,
           timer: 2000,
         });
-        regis_usuario.value = '';
-        regis_email.value = '';
-        regis_contrasena.value = '';
-        regis_sexo.value = '';
-        regis_fecha_nacimiento.value = '';
+        document.getElementById('regis_usuarios').value = '';
+        document.getElementById('regis_email').value = '';
+        document.getElementById('regis_contrasena').value = '';
+        document.getElementById('regis_sexo').value = '';
+        document.getElementById('regis_fecha_nacimiento').value = '';
       }
     })
     .catch((error) => {

@@ -3,7 +3,7 @@ from config.db import db, app, ma
 
 
 class logins(db.Model):
-    __tablename__ = "tbllogin"
+    __tablename__ = "tblusuarios"
 
     id = db.Column(db.Integer, primary_key=True)
     usuario = db.Column(db.String(50))

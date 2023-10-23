@@ -7,12 +7,15 @@ from config.db import db, app, ma
 
 # #importar los model en orden
 from model.login import logins
+from model.odontologo import odontologos
 
 
 # importacion de los api
 from api.login import routes_login
 app.register_blueprint(routes_login, url_prefix="/api")
 
+from api.mostrar import routes_mostrar
+app.register_blueprint(routes_mostrar, url_prefix="/api")
 
 # importacion del home
 from rutas.home import routes_home

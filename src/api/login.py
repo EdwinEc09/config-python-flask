@@ -24,17 +24,15 @@ def validar_login():
     else:
         return {"status": "Error", "message": "Correo incorrecto"}
 
-    
-@routes_login.route('/guardaregistros', methods=['POST'])
-def guardaregistross():
 
-    regis_usuario = request.form['regis_usuarioss']
-    print(regis_usuario)
+
+@routes_login.route('/guardaregistros', methods=['POST'])
+def guardaregistros():
+    regis_usuario = request.form['regis_usuarios']
     email = request.form['email']
     contrasena = request.form['contrasena']
     sexo = request.form['sexo']
     fecha_nacimiento = request.form['fecha_nacimiento']
-
     # Verificar si el usuario o el email ya existen en la base de datos
     existing_user = logins.query.filter(logins.usuario == regis_usuario).first()
     existing_email = logins.query.filter(logins.Email == email).first()
@@ -42,7 +40,6 @@ def guardaregistross():
         return "Usuario ya existe"
     if existing_email:
         return "Email ya existe"
-    
     # Si no existen ni el usuario ni el email, crea una nueva entrada
     new_reg = logins(regis_usuario, email,contrasena, sexo, fecha_nacimiento)
     db.session.add(new_reg)
