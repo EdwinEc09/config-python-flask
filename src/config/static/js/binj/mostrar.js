@@ -6,7 +6,7 @@ function mostrar_cita_admin_tabla() {
       .get("/api/mostrar_usuarios", { 
         responseType: "json",
       })
-  
+
       .then(function (response) {
         let datos = response.data;
         var length = Object.keys(datos).length + 1;
