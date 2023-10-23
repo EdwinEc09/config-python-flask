@@ -8,14 +8,16 @@ from config.db import db, app, ma
 # #importar los model en orden
 from model.login import logins
 
-# importacion del home
-from rutas.home import routes_home
-app.register_blueprint(routes_home, url_prefix="/fronted")
-
 
 # importacion de los api
 from api.login import routes_login
 app.register_blueprint(routes_login, url_prefix="/api")
+
+
+# importacion del home
+from rutas.home import routes_home
+app.register_blueprint(routes_home, url_prefix="/fronted")
+
 
 
 

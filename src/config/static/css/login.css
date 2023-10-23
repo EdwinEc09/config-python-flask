@@ -15,6 +15,7 @@ section{
     background-size: cover;
     background-position: center;
     animation: animateBg 5s linear infinite;
+    /* background-image: url("../img/logo1.png"); */
 }
 
 @keyframes animateBg{

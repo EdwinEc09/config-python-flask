@@ -14,27 +14,27 @@
 <body>
     <section>
         <div class="login-box">
-            <form action="">
+            <form onsubmit="return false;">
                 <h2>Registro</h2>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="person"></ion-icon></span>
-                    <input id="usuario" type="text">
+                    <input id="regis_usuarios" type="text">
                     <label> Usuario</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input id="email" type="email">
+                    <input id="regis_email" type="email">
                     <label> Email</label>
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input id="contrasena" type="password">
+                    <input id="regis_contrasena" type="password">
                     <label>Password</label>
                 </div>
                 <div class="input-box-select">
                     <span class="icon"><ion-icon name="transgender"></ion-icon></span>
                     <label>sexo</label>
-                    <select id="sexo">
+                    <select id="regis_sexo">
                         <option value="">Selecciona</option>
                         <option value="masculino">Masculino</option>
                         <option value="femenino">Femenino</option>
@@ -43,11 +43,10 @@
                 </div>
                 <div class="input-box">
                     <span class="icon"><ion-icon name="calendar"></ion-icon></span>
-                    <input id="fecha_nacimiento" type="date">
+                    <input id="regis_fecha_nacimiento" type="date">
                     <label>Fecha de Nacimiento</label>
                 </div>
-                <button type="submit">Registrarme</button>
-
+                <button type="submit" onclick="registrar()">Registrarme</button>
                 <div class="register-link">
                     <p>Already have an account?
                         <a href="#">Login</a>
@@ -56,10 +55,11 @@
             </form>
         </div>
     </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="{{url_for('static', filename='js/binj/login.js')}}"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
-
 {% endblock %}

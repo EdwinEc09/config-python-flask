@@ -51,33 +51,24 @@ function validar_login(event) {
       console.log(error);
     });
 }
-
 document.getElementById('entrar').addEventListener('click', validar_login);
 
 
 
 
-
-
-//esta es la funcion de guardar paciente(registro) como admin utilizando la ruta de "admin_tabla_paciente.py"
 function registrar() {
-
-  const usuario = document.getElementById('usuario');
-  const Correo = document.getElementById('Correo');
-  const contraseña = document.getElementById('contraseña');
-  const sexo = document.getElementById('sexo');
-  const fecha = document.getElementById('fecha');
-
-
-  // Validar si hay datos en todos los campos
+  const regis_usuario = document.getElementById('regis_usuarios').value;
+  const regis_email = document.getElementById('regis_email').value;
+  const regis_contrasena = document.getElementById('regis_contrasena').value;
+  const regis_sexo = document.getElementById('regis_sexo').value;
+  const regis_fecha_nacimiento = document.getElementById('regis_fecha_nacimiento').value;
   if (
-    usuario.value === '' ||
-    Correo.value === '' ||
-    contraseña.value === '' ||
-    sexo.value === '' ||
-    fecha.value === ''
+    regis_usuario === '' ||
+    regis_email === '' ||
+    regis_contrasena === '' ||
+    regis_sexo === '' ||
+    regis_fecha_nacimiento === ''
   ) {
-    // Mostrar la alerta de error
     Swal.fire({
       position: 'top-center',
       icon: 'error',
@@ -85,53 +76,57 @@ function registrar() {
       showConfirmButton: false,
       timer: 2000,
     });
-    return; // Salir de la función si no hay datos en todos los campos
+    return;
   }
-
   axios
-    .post('guardar_usuario', {
-      usuario: usuario.value,
-      Correo: Correo.value,
-      contraseña: contraseña.value,
-      sexo: sexo.value,
-      fecha: fecha.value,
-
-    }, {
-      headers: {
-        'Content-Type': 'multipart/form-data',
+    .post(
+      "/api/guardaregistros",
+      {
+        regis_usuarioss: regis_usuario,
+        email: regis_email,
+        contrasena: regis_contrasena,
+        sexo: regis_sexo,
+        fecha_nacimiento: regis_fecha_nacimiento,
       },
-    })
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    )
     .then((res) => {
-      console.log(res.data);
-      if (res.data === 'Paciente already exists in the database') {
-        // Mostrar la alerta de paciente existente
+      if (res.data === 'Usuario ya existe') {
         Swal.fire({
           position: 'top-center',
           icon: 'warning',
-          title: 'El paciente ya existe en la base de datos.',
+          title: 'El usuario ya existe',
+          showConfirmButton: false,
+          timer: 2000,
+        });
+      } else if (res.data === 'Email ya existe') {
+        Swal.fire({
+          position: 'top-center',
+          icon: 'warning',
+          title: 'La direccion de correo electronico existente',
           showConfirmButton: false,
           timer: 2000,
         });
       } else {
-        // Mostrar la alerta de éxito
         Swal.fire({
           position: 'top-center',
           icon: 'success',
-          title: '¡Paciente Registrado Exitosamente!',
+          title: '¡Se ha registrado exitosamente!',
           showConfirmButton: false,
           timer: 2000,
         });
-        setTimeout(function () {
-          window.location.href = '/fronted/principal';
-        }, 2000);
-
-
-        // Restablecer los valores de los campos
-
+        regis_usuario.value = '';
+        regis_email.value = '';
+        regis_contrasena.value = '';
+        regis_sexo.value = '';
+        regis_fecha_nacimiento.value = '';
       }
     })
     .catch((error) => {
       console.error(error);
     });
 }
-

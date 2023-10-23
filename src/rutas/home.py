@@ -16,6 +16,11 @@ def index_registro():
     titulo = "Pagina registro"
     return render_template('/main/registro.html', titles=titulo)
 
+@routes_home.route("/index_login",  methods=['GET'])
+def index_login():
+    titulo = "Pagina login"
+    return render_template('/main/login.html', titles=titulo)
+
 
 # #   este es un ejemplo de como protejer las rutas con session
 # @routes_home.route("/perfil" , methods=['GET'] )
