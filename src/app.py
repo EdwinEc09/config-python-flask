@@ -10,6 +10,21 @@ from model.login import logins
 from model.odontologo import odontologos
 
 
+
+#importar los model en orden
+# from model.admin import admins
+# from model.paciente import pacientes
+# from model.odontologo import odontologos
+
+# from model.histo_clinico import histoclinicos
+# from model.fechas_disponibles import  fechas_disponi
+
+# from model.cita import citas
+
+# from model.tratamiento import tratamientos
+
+
+
 # importacion de los api
 from api.login import routes_login
 app.register_blueprint(routes_login, url_prefix="/api")
