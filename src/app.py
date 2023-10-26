@@ -6,22 +6,22 @@ from config.db import db, app, ma
 
 
 # #importar los model en orden
-from model.login import logins
+# from model.login import logins
+# from model.odontologo1 import odontologos1
+
+
+
+# importar los model en orden
+from model.admin import admins
+from model.paciente import pacientes
 from model.odontologo import odontologos
 
+from model.histo_clinico import histoclinicos
+from model.fechas_disponibles import  fechas_disponi
 
+from model.cita import citas
 
-#importar los model en orden
-# from model.admin import admins
-# from model.paciente import pacientes
-# from model.odontologo import odontologos
-
-# from model.histo_clinico import histoclinicos
-# from model.fechas_disponibles import  fechas_disponi
-
-# from model.cita import citas
-
-# from model.tratamiento import tratamientos
+from model.tratamiento import tratamientos
 
 
 
