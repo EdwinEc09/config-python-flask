@@ -21,6 +21,10 @@ def index_login():
     titulo = "Pagina login"
     return render_template('/main/login.html', titles=titulo)
 
+@routes_home.route("/index_citas",  methods=['GET'])
+def index_citas():
+    titulo = "Pagina citas"
+    return render_template('/main/citas.html', titles=titulo)
 
 @routes_home.route("/index_pacientes",  methods=['GET'])
 def index_pacientes():
