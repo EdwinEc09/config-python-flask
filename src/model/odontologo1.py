@@ -1,7 +1,7 @@
 from config.db import db, app, ma 
 
 class odontologos1(db.Model):
-    __tablename__ = "tblodontologos"
+    __tablename__ = "tblodontologos1"
 
     
     id  = db.Column(db.Integer, primary_key=True)
@@ -12,7 +12,7 @@ class odontologos1(db.Model):
     telefono = db.Column(db.Integer)
     correo = db.Column(db.String(50))
     especialidad = db.Column(db.String(250))
-    id_usuario = db.Column(db.Integer,db.ForeignKey('tblusuarios.id'), nullable=True)
+    id_usuario = db.Column(db.Integer,db.ForeignKey('tbllogin.id'), nullable=True)
 
     def __init__(self,fecha_de_regitro, nombre,cedula,direccion,telefono,correo,especialidad,id_admin=None):
 
