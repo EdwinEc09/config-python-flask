@@ -22,7 +22,7 @@ def index_login():
     return render_template('/main/login.html', titles=titulo)
 
 @routes_home.route("/index_citas",  methods=['GET'])
-def index_login():
+def index_citas():
     titulo = "Pagina citas"
     return render_template('/main/citas.html', titles=titulo)
 
