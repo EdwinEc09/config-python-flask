@@ -13,7 +13,7 @@ function validar_login(event) {
     });
     return; // Salir de la función si no hay datos en todos los campos
   }
-  axios.post('api/validar_login', {
+  axios.post('/api/validar_login', {
     usuario: usuario.value,
     contrasena: contrasena.value
   })
