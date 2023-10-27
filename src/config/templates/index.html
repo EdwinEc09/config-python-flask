@@ -1,5 +1,4 @@
-{% extends "layout.html" %}
-{% block body %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,7 +28,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/fronted/index_dashboar">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -48,7 +47,7 @@
                 </li>
 
                 <li>
-                    <a href="/fronted/index_pacientes">
+                    <a href="index_pacientes">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -105,6 +104,11 @@
     
     </div>
 
+    <div class="layaout-index" >
+        {% block body %}
+  
+        {% endblock %}
+    </div>
     <!-- =========== Scripts =========  -->
     <!-- <script src="assets/js/main.js"></script> -->
 <script src="{{url_for('static', filename='js/main.js')}}"></script>
@@ -117,4 +121,3 @@
 </body>
 
 </html>
-{% endblock %}
