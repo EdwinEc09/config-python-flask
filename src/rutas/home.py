@@ -31,6 +31,10 @@ def index_pacientes():
     titulo = "Pagina "
     return render_template('/main/pacientes.html', titles=titulo)
 
+@routes_home.route("/index_medico",  methods=['GET'])
+def index_medico():
+    titulo = "Pagina medico"
+    return render_template('/main/medico.html', titles=titulo)
 
 
 # #   este es un ejemplo de como protejer las rutas con session
