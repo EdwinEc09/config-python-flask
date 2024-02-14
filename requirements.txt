@@ -1,2 +1,0 @@
-flask-sqlalchemy==2.5.1
-flask-marshmallow==0.15.1
